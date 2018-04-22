@@ -11,3 +11,7 @@
 /log/*
 !/log/.keep
 /tmp
+
+/config/initializers/app_env_variables.rb
+
+.idea/*
