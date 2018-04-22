@@ -1,0 +1,56 @@
+<!--this is actually available in any layout-->
+<% #@page_title = "Expenses" %>
+<!--
+all instance variables, in controller or any view,
+they are all available throughout.
+just think of your view and your controller of being one and
+the same thing.
+-->
+
+<script>
+$( document ).ready(function() {
+    // $(".alert").delay(2000).fadeOut(400, function() {
+    //     $(this).alert('close');
+    // });
+
+    // show the alert
+    // setTimeout(function() {
+    //     $(".alert").alert('close');
+    // }, 2000);
+});
+
+</script>
+
+  <br>
+  <%= link_to("+ expense", {:action => 'new'}, :class => 'action new btn btn-default') %>
+
+  <h2>Expenses</h2>
+  <table class="table table-condensed">
+
+    <thead>
+    <tr>
+      <th>Transaction Date</th>
+      <th>Description</th>
+      <th>Amount</th>
+      <th>Category</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @expenses.each do |expense| %>
+    <tr>
+      <td><%= expense.transaction_date %></td>
+      <td><%= expense.description %></td>
+      <td><%= number_to_currency(expense.amount, precision: 2) %></td>
+      <td><%= expense.category %></td>
+      <td>
+        <%= link_to("Show", {:action => 'show', :id => expense.id}, :class => 'btn btn-default') %>
+        <%= link_to("Edit", {:action => 'edit', :id => expense.id}, :class => 'btn btn-default') %>
+        <%= link_to("Delete", {:action => 'delete', :id => expense.id}, :class => 'btn btn-default') %>
+      </td>
+    </tr>
+    <% end %>
+    </tbody>
+
+  </table>

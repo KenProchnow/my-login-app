@@ -1,0 +1,13 @@
+
+
+  <h2>Edit Expense</h2>
+
+  <%= form_for(:expense, :url => {:action => 'update', :id => @expense.id}, html: {class: "form-horizontal"}) do |f| %>
+
+    <%= render(:partial => "form", :locals => {:f => f}) %>
+
+    <%= submit_tag "update expense", :class => "btn btn-default" %>
+
+  <% end %>
+
+

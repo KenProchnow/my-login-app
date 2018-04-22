@@ -1,11 +1,31 @@
 Rails.application.routes.draw do
-  devise_for :users
+
+  root "home#index"
+
+  get 'home/index'
+  get 'home/about'
+
+  # match ':controller(/:action(/:id))', :via => [:get,:post]
+
+
+  get 'expenses', :to => "expenses#index"
+  get 'expenses/index', :to => "expenses#index"
+  get 'expenses/show/:id', :to => "expenses#show"
+  get 'expenses/new', :to => "expenses#new"
+  post 'expenses/create', :to => "expenses#create"
+  get 'expenses/edit/:id', :to => "expenses#edit"
+  post 'expenses/update/:id', :to => "expenses#update"
+  get 'expenses/delete/:id', :to => "expenses#delete"
+
+  # where the hell is this calling from????
+  devise_for :users, controllers: { registration: "registrations"}
+
+  get 'test', :to => "test#index"
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-
-  # root "public#index"
-  get 'test', :to => "test#index"
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

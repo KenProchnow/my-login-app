@@ -1,0 +1,30 @@
+
+
+  <br>
+  <%= link_to("expense List page", {:action => 'index'}, :class => 'action new btn btn-default') %>
+
+  <h2>expense</h2>
+  <table class="table table-condensed">
+    <tbody>
+
+      <tr>
+        <td>Description</td>
+        <td><%= @expense.description %></td>
+      </tr>
+      <tr>
+        <td>Transaction Date</td>
+        <td><%= @expense.transaction_date %></td>
+      </tr>
+      <tr>
+        <td>Category</td>
+        <td><%= @expense.category %></td>
+      </tr>
+      <tr>
+        <td>Amount</td>
+        <td><%= @expense.amount %></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+

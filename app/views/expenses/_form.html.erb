@@ -1,0 +1,44 @@
+<!--
+we know this is a partial because of the underline before
+the file name.
+-->
+
+<!-- call a partial, do not include the underscore, rails expects it -->
+<!--
+ variable name and the value that the partial is going to be using
+ local variables need to be passed through to the partial.
+
+
+ -->
+
+<div class="form-group">
+  <label class="col-sm-2" for="transaction_date">Transaction Date:</label>
+  <div class="col-sm-10">
+    <%= f.text_field(:transaction_date, :class => "form-control", autofocus: true) %>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-sm-2" for="description">Description:</label>
+  <div class="col-sm-10">
+    <%= f.text_field(:description, :class => "form-control") %>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-sm-2" for="amount">Amount:</label>
+  <div class="col-sm-10">
+    <%= f.text_field(:amount, :class => "form-control") %>
+  </div>
+</div>
+
+
+<div class="form-group">
+  <label class="col-sm-2" for="category">Category:</label>
+  <div class="col-sm-10">
+    <%= f.text_field(:category, :class => "form-control") %>
+  </div>
+</div>
+
+
+
