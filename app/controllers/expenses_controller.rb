@@ -27,7 +27,9 @@ rails helper str to datetime
   end
 
   def show
-    @expense = Expense.find(params[:id]).where(:user_id => current_user.id)
+    @expense = Expense
+                   .where(:user_id => current_user.id)
+                   .find(params[:id])
   end
 
   def create
@@ -69,7 +71,7 @@ rails helper str to datetime
   end
 
   def update
-    @expense = Expense.find(params[:id]).where(:user_id => current_user.id)
+    @expense = Expense.where(:user_id => current_user.id).find(params[:id])
 
     # uses mass assignment
     if @expense.update_attributes(expense_params)
@@ -87,7 +89,7 @@ rails helper str to datetime
 
   def delete
     # since we are not using a template, we can assign to a local variable
-    expense = Expense.find(params[:id]).where(:user_id => current_user.id)
+    expense = Expense.where(:user_id => current_user.id).find(params[:id])
     if expense.destroy
 
       flash[:notice] = "the expense: #{expense.id} was destroyed successfully"

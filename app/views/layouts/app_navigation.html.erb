@@ -52,8 +52,25 @@
 
 
 <div class="container">
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <!--<p class="notice"><%= notice %></p>-->
+  <!--<p class="alert"><%= alert %></p>-->
+</div>
+
+
+<div class="container">
+  <% if !flash[:notice].blank? %>
+    <div class="alert alert-success fade in">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Success!</strong> <%= flash[:notice] %>
+    </div>
+  <% end %>
+
+  <% if !flash[:alert].blank? %>
+    <div class="alert alert-danger fade in">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Error!</strong> <%= flash[:alert] %>
+    </div>
+  <% end %>
 </div>
 
 <body>

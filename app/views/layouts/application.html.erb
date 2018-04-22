@@ -15,7 +15,6 @@
 </head>
 <!--i dont like how a partial is being called from a parent, it may not exist in a child view directory structure.-->
 
-
 <!-- nav bar -->
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -55,9 +54,36 @@
 
 
 <div class="container">
-<span class="notice"><%= notice %></span>
-<span class="alert"><%= alert %></span>
+
+<!--<span class="notice"><%= notice %></span>-->
+<!--<span class="alert"><%= alert %></span>-->
+
 </div>
+
+
+
+
+<div class="container">
+  <% if !flash[:notice].blank? %>
+    <div class="alert alert-success fade in">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Success!</strong> <%= flash[:notice] %>
+    </div>
+  <% end %>
+
+  <% if !flash[:alert].blank? %>
+    <div class="alert alert-danger fade in">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Error!</strong> <%= flash[:alert] %>
+    </div>
+  <% end %>
+</div>
+
+
+
+
+
+
 
 <body>
 <!-- before yield -->
