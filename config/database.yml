@@ -13,9 +13,11 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: <%= ENV["DB_USER_NAME"] %>
-  password: <%= ENV["DB_PASSWORD"] %>
-  socket: /tmp/mysql.sock
+  username: deploy2
+  password: password
+  host: localhost
+  port: 3306
+#  socket: /tmp/mysql.sock
 
 
 development:
@@ -51,5 +53,7 @@ test:
 production:
   <<: *default
   database: my-login-app_production
-  username: <%= ENV['DB_USER_NAME_PROD'] %>
-  password: <%= ENV['DB_PASSWORD_PROD'] %>
+  username: deploy2
+  password: password
+  host: localhost
+  port: 3306
