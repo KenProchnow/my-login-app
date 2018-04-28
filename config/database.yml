@@ -54,6 +54,6 @@ production:
   <<: *default
   database: my-login-app_production
   username: <%= ENV["DB_USER_NAME"] %>
-  password: <%= ENV["DB_PASSWORD"] %
+  password: <%= ENV["DB_PASSWORD"] %>
   host: localhost
   port: 3306
